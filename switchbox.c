@@ -71,11 +71,11 @@ int main(int argc, char *argv[]) {
   // SET_CLEAR_OUTPUT command opcode
   buf[0] = 0x08;
   if (set) {
-    // clear all pins
-    buf[12] = 0xff;
-  } else {
     // set pin 3 high
     buf[11] = 0x08;
+  } else {
+    // clear all pins
+    buf[12] = 0xff;
   }
   res = hid_write(handle, buf, 16);
 
