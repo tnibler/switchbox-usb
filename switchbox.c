@@ -44,6 +44,10 @@ int main(int argc, char *argv[]) {
 
   // Initialize the hidapi library
   res = hid_init();
+  if (res < 0) {
+    fprintf(stderr, "Error initializing HIDAPI:\n%ls\n", hid_error(NULL));
+    return 1;
+  }
 
   handle = hid_open(vendor, product, NULL);
   if (!handle) {
@@ -67,6 +71,11 @@ int main(int argc, char *argv[]) {
   buf[0] = 0x10;
   // the rest of the buffer is all 0 i.e., configure all pins as output.
   res = hid_write(handle, buf, 16);
+  if (res < 0) {
+    fprintf(stderr, "Error sending initial CONFIGURE command to HID device:\n%ls\n", hid_error(handle));
+    return 1;
+  }
+
 
   // SET_CLEAR_OUTPUT command opcode
   buf[0] = 0x08;
@@ -78,6 +87,10 @@ int main(int argc, char *argv[]) {
     buf[12] = 0xff;
   }
   res = hid_write(handle, buf, 16);
+  if (res < 0) {
+    fprintf(stderr, "Error sending SET_CLEAR_OUTPUT command to HID device:\n%ls\n", hid_error(handle));
+    return 1;
+  }
 
   hid_close(handle);
   res = hid_exit();
