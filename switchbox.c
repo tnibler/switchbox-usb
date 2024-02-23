@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
   // Initialize the hidapi library
   res = hid_init();
 
-  handle = hid_open(0x0001, 0x0000, NULL);
+  handle = hid_open(vendor, product, NULL);
   if (!handle) {
     fprintf(stderr,
             "Unable to open device.\nThis program needs privileges to access "
