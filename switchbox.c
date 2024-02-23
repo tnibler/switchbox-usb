@@ -3,7 +3,7 @@
 #include <string.h>
 #include <wchar.h>
 
-#include <hidapi.h>
+#include <hidapi/hidapi.h>
 
 const unsigned short DEFAULT_VENDOR = 0x0001;
 const unsigned short DEFAULT_PRODUCT = 0x0000;
