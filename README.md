@@ -45,4 +45,6 @@ A command to create a rule that works on most systems is printed by the program:
 SUBSYSTEM=="usb", ATTR{idVendor}=="<VendorID>", ATTR{idProduct}=="<ProductID>", MODE="0666"
 ```
 
+To read the current state (`on`/`off`), use `./switchbox get`.
+
 [MCP2200 datasheet](https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/SupportingCollateral/93066A.pdf)
