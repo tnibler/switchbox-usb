@@ -62,7 +62,7 @@ int main(int argc, char *argv[]) {
             "systems. Paste into your terminal, at your own risk:\n\n"
             "echo \"SUBSYSTEM==\\\"usb\\\", ATTR{idVendor}==\\\"%04x\\\", "
             "ATTR{idProduct}==\\\"%04x\\\", MODE=\\\"0666\\\"\" | sudo tee "
-            "/etc/udev/rules.d/99-hid-switchbox.rules",
+            "/etc/udev/rules.d/99-hid-switchbox.rules\n",
             vendor, product);
     hid_exit();
     return 1;
